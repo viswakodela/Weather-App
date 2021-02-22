@@ -10,6 +10,11 @@ import Combine
 import WeatherNetworking
 
 class AddLocationViewModel: ObservableObject {
+    private let manager = OpenWeatherApiManager()
     init() {
+        guard let infoPlistAPIKey = Bundle.main.infoDictionary?["OpenWeatherMapApiKey"] as? String else {
+            fatalError("You must supply API key either in the initializer or in the Info.plist under `OpenWeatherMapApiKey`")
+        }
+        manager.fetchOneCallApi(apiKey: infoPlistAPIKey)
     }
 }

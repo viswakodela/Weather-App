@@ -11,45 +11,59 @@ import Combine
 /// **NetworkRouter** is responsible to create the router by using the attributes specified in the requested *Endpoint*
 protocol NetworkRequest: AnyObject {
     associatedtype Endpoint: EndPointType
-    associatedtype DecodingObject: Decodable
-    func request(_ route: Endpoint) -> AnyPublisher<DecodingObject, NetworkError>
+    func request<D: Decodable>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, NetworkError>
     func cancel()
 }
 
 
-public class NetworkManager<Endpoint: EndPointType, DecodingObject: Decodable>: NetworkRequest {
-    private var task: URLSessionTask?
+public class NetworkManager<Endpoint: EndPointType>: NetworkRequest {
     
-    private var cancellable: AnyCancellable?
+    public init() {}
     
-    func request(_ route: Endpoint) -> AnyPublisher<DecodingObject, NetworkError> {
+    public func request<D>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, NetworkError> where D : Decodable {
         let session = URLSession.shared
         
         do {
             let request = try buildRequest(from: route)
-            cancellable = session.dataTaskPublisher(for: request)
-                .map({ data, _ in
-                    return data
-                })
-                .replaceError(with: Data())
-                .map({ String(data: $0, encoding: .utf8) })
-                .compactMap { $0 }
-                .sink {
-                    print($0)
+            return session.dataTaskPublisher(for: request)
+                .tryMap { (data: Data, response: URLResponse) in
+                    guard let http = response as? HTTPURLResponse else { throw NetworkError.nonHTTPResponse }
+                    return (data, http)
                 }
+                .mapError { error -> Error in
+                    if error is NetworkError {
+                        return error as! NetworkError
+                    } else {
+                        return NetworkError.networkError(error)
+                    }
+                }
+                .tryMap { (data: Data, response: HTTPURLResponse) -> Data in
+                    switch response.statusCode {
+                    case 200...299: return data
+                    case 400...499: throw NetworkError.requestFailed(response.statusCode)
+                    case 500...599: throw NetworkError.serverError(response.statusCode)
+                    default:
+                        throw NetworkError.unhandledResponse("Unhandled HTTP Response Status code: \(response.statusCode)")
+                    }
+                }
+                .mapError({ $0 as! NetworkError })
+                .decode(type: D.self, decoder: JSONDecoder())
+                .mapError { error in
+                    if error is DecodingError {
+                        return NetworkError.decodingError(error as! DecodingError)
+                    } else {
+                        return error as! NetworkError
+                    }
+                }
+                .eraseToAnyPublisher()
         } catch {
-            let error = NetworkError.unknown
+            let error = NetworkError.networkError(error)
             return Fail(error: error)
                 .eraseToAnyPublisher()
         }
-        return Just(String() as! DecodingObject)
-            .setFailureType(to: NetworkError.self)
-            .eraseToAnyPublisher()
     }
     
-    func cancel() {
-        task?.cancel()
-    }
+    func cancel() {}
     
     /// Helps build the route for the given *Endpoint*
     /// - Parameter route: ...

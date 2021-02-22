@@ -28,7 +28,7 @@ public typealias HTTPHeaders = [String: String]
 
 /// **HTTPTask** will help to choose the required case according to the *urlParameters*, *bodyParameters* and *additionalHeaders* we specify to create the **Route**
 public enum HTTPTask {
-    case requestParameters(bodyParameters: Parameters?, urlParameters: Parameters?)
+    case requestParameters(bodyParameters: Parameters? = nil, urlParameters: Parameters? = nil)
 
     case requestParametersAndHeaders(bodyParameters: Parameters?, urlParameters: Parameters?, additionalHeaders: HTTPHeaders?)
 }

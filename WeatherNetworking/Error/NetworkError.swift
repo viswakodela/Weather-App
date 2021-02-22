@@ -7,9 +7,28 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case badUrl
-    case unknown
+public enum NetworkError: Error {
+    case nonHTTPResponse
+    case requestFailed(Int)
+    case serverError(Int)
+    case networkError(Error)
+    case decodingError(DecodingError)
+    case unhandledResponse(String)
+    
+    public var isRetriable: Bool {
+        switch self {
+        case .decodingError, .unhandledResponse:
+            return false
+            
+        case .requestFailed(let status):
+            let timeoutStatus = 408
+            let rateLimitStatus = 429
+            return [timeoutStatus, rateLimitStatus].contains(status)
+            
+        case .serverError, .networkError, .nonHTTPResponse:
+            return true
+        }
+    }
 }
 
 

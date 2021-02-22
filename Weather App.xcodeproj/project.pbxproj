@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */; };
+		BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379325E32A1900E72DC6 /* OneCallApi.swift */; };
+		BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */; };
 		BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C4D25E314430081B18B /* Weather_AppApp.swift */; };
 		BDCA8C5025E314430081B18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C4F25E314430081B18B /* ContentView.swift */; };
 		BDCA8C5225E314460081B18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCA8C5125E314460081B18B /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallDecodable.swift; sourceTree = "<group>"; };
+		BD93379325E32A1900E72DC6 /* OneCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallApi.swift; sourceTree = "<group>"; };
+		BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApiManager.swift; sourceTree = "<group>"; };
 		BDCA8C4A25E314430081B18B /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA8C4D25E314430081B18B /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
 		BDCA8C4F25E314430081B18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 		BDCA8CA925E319770081B18B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BDCA8CAE25E31AC40081B18B /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
+		BDCA8CD225E323940081B18B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +126,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD0881CD25E3370900C8DE77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD0881D625E337F100C8DE77 /* Request Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA8CAE25E31AC40081B18B /* RequestManager.swift */,
+			);
+			path = "Request Manager";
+			sourceTree = "<group>";
+		};
+		BD93379125E329F600E72DC6 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BD93379225E329FD00E72DC6 /* OpenWeather Api */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BD93379225E329FD00E72DC6 /* OpenWeather Api */ = {
+			isa = PBXGroup;
+			children = (
+				BD93379325E32A1900E72DC6 /* OneCallApi.swift */,
+			);
+			path = "OpenWeather Api";
+			sourceTree = "<group>";
+		};
+		BD9337A025E32C6600E72DC6 /* OW Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */,
+			);
+			path = "OW Manager";
+			sourceTree = "<group>";
+		};
 		BDCA8C4125E314430081B18B = {
 			isa = PBXGroup;
 			children = (
+				BDCA8CD325E323A30081B18B /* Configuration */,
 				BDCA8C4C25E314430081B18B /* Weather App */,
 				BDCA8C5E25E314460081B18B /* Weather AppTests */,
 				BDCA8C6925E314460081B18B /* Weather AppUITests */,
@@ -144,6 +192,7 @@
 		BDCA8C4C25E314430081B18B /* Weather App */ = {
 			isa = PBXGroup;
 			children = (
+				BD93379125E329F600E72DC6 /* Repository */,
 				BDCA8CB425E31FD70081B18B /* Main */,
 				BDCA8CB325E31FC90081B18B /* GUI */,
 				BDCA8C5125E314460081B18B /* Assets.xcassets */,
@@ -187,7 +236,7 @@
 				BDCA8C9025E317B10081B18B /* Endpoint.swift */,
 				BDCA8C9525E3183F0081B18B /* Encoding */,
 				BDCA8CA825E319640081B18B /* Error */,
-				BDCA8CAE25E31AC40081B18B /* RequestManager.swift */,
+				BD0881D625E337F100C8DE77 /* Request Manager */,
 			);
 			path = WeatherNetworking;
 			sourceTree = "<group>";
@@ -236,6 +285,8 @@
 		BDCA8CB825E31FE90081B18B /* Add location */ = {
 			isa = PBXGroup;
 			children = (
+				BD0881CD25E3370900C8DE77 /* Model */,
+				BD9337A025E32C6600E72DC6 /* OW Manager */,
 				BDCA8CBA25E3200A0081B18B /* View Model */,
 				BDCA8CB925E320010081B18B /* View */,
 			);
@@ -256,6 +307,14 @@
 				BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		BDCA8CD325E323A30081B18B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA8CD225E323940081B18B /* Secrets.xcconfig */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,7 +491,10 @@
 			files = (
 				BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */,
 				BDCA8C5025E314430081B18B /* ContentView.swift in Sources */,
+				BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */,
+				BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */,
 				BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */,
+				BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +549,7 @@
 /* Begin XCBuildConfiguration section */
 		BDCA8C6D25E314460081B18B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCA8CD225E323940081B18B /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -548,6 +611,7 @@
 		};
 		BDCA8C6E25E314460081B18B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCA8CD225E323940081B18B /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -22,7 +22,7 @@ public protocol ParameterEncoder {
 /// **URLParameterEncoder** is used only to add the *URLQueryItems* to the *URLRequest*
 public struct URLParameterEncoder: ParameterEncoder {
     public static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
-        guard let url = urlRequest.url else { throw NetworkError.unknown }
+        guard let url = urlRequest.url else { throw NetworkError.nonHTTPResponse }
 
         if var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false), !parameters.isEmpty {
             urlComponents.queryItems = [URLQueryItem]()
