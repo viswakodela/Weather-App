@@ -8,16 +8,16 @@
 import Combine
 
 public extension Publisher where Output == (data: Data, response: URLResponse) {
-    func assumeHTTP() -> AnyPublisher<(data: Data, response: HTTPURLResponse), NetworkError> {
+    func assumeHTTP() -> AnyPublisher<(data: Data, response: HTTPURLResponse), OpenWeatherNetworkError> {
         tryMap { (data: Data, response: URLResponse) in
-            guard let http = response as? HTTPURLResponse else { throw NetworkError.nonHTTPResponse }
+            guard let http = response as? HTTPURLResponse else { throw OpenWeatherNetworkError.nonHTTPResponse }
             return (data, http)
         }
         .mapError { error in
-            if error is NetworkError {
-                return error as! NetworkError
+            if error is OpenWeatherNetworkError {
+                return error as! OpenWeatherNetworkError
             } else {
-                return NetworkError.networkError(error)
+                return OpenWeatherNetworkError.networkError(error)
             }
         }
         .eraseToAnyPublisher()
@@ -25,19 +25,19 @@ public extension Publisher where Output == (data: Data, response: URLResponse) {
 }
 
 public extension Publisher where Output == (data: Data, response: HTTPURLResponse),
-                                 Failure == NetworkError {
+                                 Failure == OpenWeatherNetworkError {
     
-    func responseData() -> AnyPublisher<(data: Data, response: HTTPURLResponse), NetworkError> {
+    func responseData() -> AnyPublisher<(data: Data, response: HTTPURLResponse), OpenWeatherNetworkError> {
         tryMap { (data: Data, response: HTTPURLResponse) in
             switch response.statusCode {
             case 200...299: return (data, response)
-            case 400...499: throw NetworkError.requestFailed(response.statusCode)
-            case 500...599: throw NetworkError.serverError(response.statusCode)
+            case 400...499: throw OpenWeatherNetworkError.requestFailed(response.statusCode)
+            case 500...599: throw OpenWeatherNetworkError.serverError(response.statusCode)
             default:
-                throw NetworkError.unhandledResponse("Unhandled HTTP Response Status code: \(response.statusCode)")
+                throw OpenWeatherNetworkError.unhandledResponse("Unhandled HTTP Response Status code: \(response.statusCode)")
             }
         }
-        .mapError({ $0 as! NetworkError })
+        .mapError({ $0 as! OpenWeatherNetworkError })
         .eraseToAnyPublisher()
     }
 }

@@ -11,7 +11,7 @@ import Combine
 /// **NetworkRouter** is responsible to create the router by using the attributes specified in the requested *Endpoint*
 protocol NetworkRequest: AnyObject {
     associatedtype Endpoint: EndPointType
-    func request<D: Decodable>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, NetworkError>
+    func request<D: Decodable>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, OpenWeatherNetworkError>
     func cancel()
 }
 
@@ -20,7 +20,7 @@ public class NetworkManager<Endpoint: EndPointType>: NetworkRequest {
     
     public init() {}
     
-    public func request<D>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, NetworkError> where D : Decodable {
+    public func request<D>(_ route: Endpoint, result: D.Type) -> AnyPublisher<D, OpenWeatherNetworkError> where D : Decodable {
         let session = URLSession.shared
         
         do {
@@ -34,14 +34,14 @@ public class NetworkManager<Endpoint: EndPointType>: NetworkRequest {
                 .decode(type: D.self, decoder: JSONDecoder())
                 .mapError { error in
                     if error is DecodingError {
-                        return NetworkError.decodingError(error as! DecodingError)
+                        return OpenWeatherNetworkError.decodingError(error as! DecodingError)
                     } else {
-                        return error as! NetworkError
+                        return error as! OpenWeatherNetworkError
                     }
                 }
                 .eraseToAnyPublisher()
         } catch {
-            let error = NetworkError.networkError(error)
+            let error = OpenWeatherNetworkError.networkError(error)
             return Fail(error: error)
                 .eraseToAnyPublisher()
         }

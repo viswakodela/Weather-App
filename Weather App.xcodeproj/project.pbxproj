@@ -23,7 +23,7 @@
 		BDCA8C9125E317B10081B18B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C9025E317B10081B18B /* Endpoint.swift */; };
 		BDCA8C9E25E318C60081B18B /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C9D25E318C60081B18B /* ParameterEncoder.swift */; };
 		BDCA8CA425E319170081B18B /* BodyEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CA325E319170081B18B /* BodyEncoder.swift */; };
-		BDCA8CAA25E319770081B18B /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CA925E319770081B18B /* NetworkError.swift */; };
+		BDCA8CAA25E319770081B18B /* OpenWeatherNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CA925E319770081B18B /* OpenWeatherNetworkError.swift */; };
 		BDCA8CAF25E31AC40081B18B /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CAE25E31AC40081B18B /* RequestManager.swift */; };
 		BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -89,7 +89,7 @@
 		BDCA8C9025E317B10081B18B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BDCA8C9D25E318C60081B18B /* ParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
 		BDCA8CA325E319170081B18B /* BodyEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyEncoder.swift; sourceTree = "<group>"; };
-		BDCA8CA925E319770081B18B /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		BDCA8CA925E319770081B18B /* OpenWeatherNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherNetworkError.swift; sourceTree = "<group>"; };
 		BDCA8CAE25E31AC40081B18B /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		BDCA8CD225E323940081B18B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
@@ -272,7 +272,7 @@
 		BDCA8CA825E319640081B18B /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				BDCA8CA925E319770081B18B /* NetworkError.swift */,
+				BDCA8CA925E319770081B18B /* OpenWeatherNetworkError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -531,7 +531,7 @@
 			files = (
 				BDCA8CAF25E31AC40081B18B /* RequestManager.swift in Sources */,
 				BDCA8C9E25E318C60081B18B /* ParameterEncoder.swift in Sources */,
-				BDCA8CAA25E319770081B18B /* NetworkError.swift in Sources */,
+				BDCA8CAA25E319770081B18B /* OpenWeatherNetworkError.swift in Sources */,
 				BDCA8CA425E319170081B18B /* BodyEncoder.swift in Sources */,
 				BD0881DC25E3388300C8DE77 /* Combine+DataTask+Helpers.swift in Sources */,
 				BDCA8C9125E317B10081B18B /* Endpoint.swift in Sources */,

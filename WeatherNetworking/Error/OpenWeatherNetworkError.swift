@@ -1,5 +1,5 @@
 //
-//  NetworkError.swift
+//  OpenWeatherNetworkError.swift
 //  WeatherNetworking
 //
 //  Created by Viswa Kodela on 2/21/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum NetworkError: Error {
+public enum OpenWeatherNetworkError: Error {
     case nonHTTPResponse
     case requestFailed(Int)
     case serverError(Int)

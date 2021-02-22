@@ -15,6 +15,6 @@ class AddLocationViewModel: ObservableObject {
         guard let infoPlistAPIKey = Bundle.main.infoDictionary?["OpenWeatherMapApiKey"] as? String else {
             fatalError("You must supply API key either in the initializer or in the Info.plist under `OpenWeatherMapApiKey`")
         }
-        manager.fetchOneCallApi(apiKey: infoPlistAPIKey)
+        manager.fetchOneCallApi(lat: 42.983612, lon: -81.249725, apiKey: infoPlistAPIKey)
     }
 }

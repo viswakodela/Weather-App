@@ -13,9 +13,9 @@ class OpenWeatherApiManager {
     private let weatherApi = NetworkManager<OneCallApi>()
     private var cancellables = Set<AnyCancellable>()
     
-    func fetchOneCallApi(apiKey: String) {
-        let params: Parameters = ["lat" : 42.983612,
-                                  "lon" : -81.249725,
+    func fetchOneCallApi(lat: Double, lon: Double, apiKey: String) {
+        let params: Parameters = ["lat" : lat,
+                                  "lon" : lon,
                                   "appid" : apiKey,]
         
         
