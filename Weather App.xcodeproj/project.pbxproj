@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */; };
+		BD0881DC25E3388300C8DE77 /* Combine+DataTask+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0881DB25E3388300C8DE77 /* Combine+DataTask+Helpers.swift */; };
 		BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379325E32A1900E72DC6 /* OneCallApi.swift */; };
 		BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */; };
 		BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C4D25E314430081B18B /* Weather_AppApp.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallDecodable.swift; sourceTree = "<group>"; };
+		BD0881DB25E3388300C8DE77 /* Combine+DataTask+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+DataTask+Helpers.swift"; sourceTree = "<group>"; };
 		BD93379325E32A1900E72DC6 /* OneCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallApi.swift; sourceTree = "<group>"; };
 		BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApiManager.swift; sourceTree = "<group>"; };
 		BDCA8C4A25E314430081B18B /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,14 @@
 				BDCA8CAE25E31AC40081B18B /* RequestManager.swift */,
 			);
 			path = "Request Manager";
+			sourceTree = "<group>";
+		};
+		BD0881DA25E3385200C8DE77 /* DataTask Publisher Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BD0881DB25E3388300C8DE77 /* Combine+DataTask+Helpers.swift */,
+			);
+			path = "DataTask Publisher Helpers";
 			sourceTree = "<group>";
 		};
 		BD93379125E329F600E72DC6 /* Repository */ = {
@@ -237,6 +247,7 @@
 				BDCA8C9525E3183F0081B18B /* Encoding */,
 				BDCA8CA825E319640081B18B /* Error */,
 				BD0881D625E337F100C8DE77 /* Request Manager */,
+				BD0881DA25E3385200C8DE77 /* DataTask Publisher Helpers */,
 			);
 			path = WeatherNetworking;
 			sourceTree = "<group>";
@@ -522,6 +533,7 @@
 				BDCA8C9E25E318C60081B18B /* ParameterEncoder.swift in Sources */,
 				BDCA8CAA25E319770081B18B /* NetworkError.swift in Sources */,
 				BDCA8CA425E319170081B18B /* BodyEncoder.swift in Sources */,
+				BD0881DC25E3388300C8DE77 /* Combine+DataTask+Helpers.swift in Sources */,
 				BDCA8C9125E317B10081B18B /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

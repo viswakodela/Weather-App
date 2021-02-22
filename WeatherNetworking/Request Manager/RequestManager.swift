@@ -26,27 +26,11 @@ public class NetworkManager<Endpoint: EndPointType>: NetworkRequest {
         do {
             let request = try buildRequest(from: route)
             return session.dataTaskPublisher(for: request)
-                .tryMap { (data: Data, response: URLResponse) in
-                    guard let http = response as? HTTPURLResponse else { throw NetworkError.nonHTTPResponse }
-                    return (data, http)
-                }
-                .mapError { error -> Error in
-                    if error is NetworkError {
-                        return error as! NetworkError
-                    } else {
-                        return NetworkError.networkError(error)
-                    }
-                }
-                .tryMap { (data: Data, response: HTTPURLResponse) -> Data in
-                    switch response.statusCode {
-                    case 200...299: return data
-                    case 400...499: throw NetworkError.requestFailed(response.statusCode)
-                    case 500...599: throw NetworkError.serverError(response.statusCode)
-                    default:
-                        throw NetworkError.unhandledResponse("Unhandled HTTP Response Status code: \(response.statusCode)")
-                    }
-                }
-                .mapError({ $0 as! NetworkError })
+                .assumeHTTP()
+                .responseData()
+                .map({ data, response in
+                    return data
+                })
                 .decode(type: D.self, decoder: JSONDecoder())
                 .mapError { error in
                     if error is DecodingError {
@@ -91,7 +75,6 @@ public class NetworkManager<Endpoint: EndPointType>: NetworkRequest {
     /// - Parameters:
     ///   - bodyParameters: bodyParameters defaulted with `nil`
     ///   - urlParameters: urlParameters defaulted with `nil`
-    ///   - httpBody: httpBody defaulted with `nil`
     ///   - request: *URLRequest*
     private func configureParameters(bodyParameters: Parameters? = nil, urlParameters: Parameters? = nil, request: inout URLRequest) throws {
         do {
