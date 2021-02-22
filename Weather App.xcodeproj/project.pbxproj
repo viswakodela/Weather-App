@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD02A4D425E353FB00CD6532 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02A4D325E353FB00CD6532 /* HomeViewModel.swift */; };
+		BD02A4EC25E354D000CD6532 /* AddCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02A4EB25E354D000CD6532 /* AddCityView.swift */; };
+		BD02A4F125E35C9600CD6532 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02A4F025E35C9600CD6532 /* AddCityViewController.swift */; };
 		BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */; };
 		BD0881DC25E3388300C8DE77 /* Combine+DataTask+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0881DB25E3388300C8DE77 /* Combine+DataTask+Helpers.swift */; };
 		BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379325E32A1900E72DC6 /* OneCallApi.swift */; };
 		BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */; };
 		BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C4D25E314430081B18B /* Weather_AppApp.swift */; };
-		BDCA8C5025E314430081B18B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C4F25E314430081B18B /* ContentView.swift */; };
 		BDCA8C5225E314460081B18B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCA8C5125E314460081B18B /* Assets.xcassets */; };
 		BDCA8C5525E314460081B18B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDCA8C5425E314460081B18B /* Preview Assets.xcassets */; };
 		BDCA8C6025E314460081B18B /* Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8C5F25E314460081B18B /* Weather_AppTests.swift */; };
@@ -26,6 +28,7 @@
 		BDCA8CAA25E319770081B18B /* OpenWeatherNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CA925E319770081B18B /* OpenWeatherNetworkError.swift */; };
 		BDCA8CAF25E31AC40081B18B /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CAE25E31AC40081B18B /* RequestManager.swift */; };
 		BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */; };
+		BDE2FFB525E351DF00B4F6F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,13 +70,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BD02A4D325E353FB00CD6532 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BD02A4EB25E354D000CD6532 /* AddCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityView.swift; sourceTree = "<group>"; };
+		BD02A4F025E35C9600CD6532 /* AddCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		BD0881CE25E3372200C8DE77 /* OneCallDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallDecodable.swift; sourceTree = "<group>"; };
 		BD0881DB25E3388300C8DE77 /* Combine+DataTask+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+DataTask+Helpers.swift"; sourceTree = "<group>"; };
 		BD93379325E32A1900E72DC6 /* OneCallApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCallApi.swift; sourceTree = "<group>"; };
 		BD93379B25E32C6200E72DC6 /* OpenWeatherApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherApiManager.swift; sourceTree = "<group>"; };
 		BDCA8C4A25E314430081B18B /* Weather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCA8C4D25E314430081B18B /* Weather_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather_AppApp.swift; sourceTree = "<group>"; };
-		BDCA8C4F25E314430081B18B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BDCA8C5125E314460081B18B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDCA8C5425E314460081B18B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BDCA8C5625E314460081B18B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 		BDCA8CAE25E31AC40081B18B /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		BDCA8CD225E323940081B18B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +134,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD02A4D225E353ED00CD6532 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BD02A4D325E353FB00CD6532 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BD0881CD25E3370900C8DE77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +294,7 @@
 		BDCA8CB325E31FC90081B18B /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				BDE2FFB225E351C000B4F6F6 /* Home */,
 				BDCA8CB825E31FE90081B18B /* Add location */,
 			);
 			path = GUI;
@@ -307,7 +322,8 @@
 		BDCA8CB925E320010081B18B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDCA8C4F25E314430081B18B /* ContentView.swift */,
+				BD02A4EB25E354D000CD6532 /* AddCityView.swift */,
+				BD02A4F025E35C9600CD6532 /* AddCityViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,6 +342,23 @@
 				BDCA8CD225E323940081B18B /* Secrets.xcconfig */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		BDE2FFB225E351C000B4F6F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BD02A4D225E353ED00CD6532 /* ViewModel */,
+				BDE2FFB325E351CE00B4F6F6 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BDE2FFB325E351CE00B4F6F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,10 +534,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */,
-				BDCA8C5025E314430081B18B /* ContentView.swift in Sources */,
+				BD02A4EC25E354D000CD6532 /* AddCityView.swift in Sources */,
+				BDE2FFB525E351DF00B4F6F6 /* HomeView.swift in Sources */,
+				BD02A4D425E353FB00CD6532 /* HomeViewModel.swift in Sources */,
 				BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */,
 				BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */,
 				BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */,
+				BD02A4F125E35C9600CD6532 /* AddCityViewController.swift in Sources */,
 				BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
