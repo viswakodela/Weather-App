@@ -38,6 +38,7 @@
 		BDF6831A25E9D6C700F61D09 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF6831925E9D6C700F61D09 /* Colors.xcassets */; };
 		BDF6831F25E9D70000F61D09 /* UIColor.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6831E25E9D70000F61D09 /* UIColor.Extension.swift */; };
 		BDF6832425E9DAA400F61D09 /* LocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6832325E9DAA400F61D09 /* LocationCellViewModel.swift */; };
+		BDF6832A25E9F14300F61D09 /* CityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6832925E9F14300F61D09 /* CityStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		BDF6831925E9D6C700F61D09 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		BDF6831E25E9D70000F61D09 /* UIColor.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.Extension.swift; sourceTree = "<group>"; };
 		BDF6832325E9DAA400F61D09 /* LocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModel.swift; sourceTree = "<group>"; };
+		BDF6832925E9F14300F61D09 /* CityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 		BDCA8CB325E31FC90081B18B /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				BDF6832825E9F13400F61D09 /* Store */,
 				BDF682F025E9D4BF00F61D09 /* UIView */,
 				BDF682E125E9D34E00F61D09 /* Common */,
 				BDE2FFB225E351C000B4F6F6 /* Home */,
@@ -434,6 +437,14 @@
 				BDF6831925E9D6C700F61D09 /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		BDF6832825E9F13400F61D09 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				BDF6832925E9F14300F61D09 /* CityStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -625,6 +636,7 @@
 				BDF682E925E9D45900F61D09 /* SelectLocationTableViewCell.swift in Sources */,
 				BDF6832425E9DAA400F61D09 /* LocationCellViewModel.swift in Sources */,
 				BD02A4F125E35C9600CD6532 /* AddCityViewController.swift in Sources */,
+				BDF6832A25E9F14300F61D09 /* CityStore.swift in Sources */,
 				BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
