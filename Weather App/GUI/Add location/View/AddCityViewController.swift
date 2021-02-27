@@ -43,15 +43,7 @@ class AddCityViewController: UIViewController {
         setupNavBar()
         setupTableView()
         configureTableView()
-        
-        viewModel
-            .snapshotPublisher
-            .sink { [unowned self] (snapshot) in
-                DispatchQueue.main.async {
-                    self.dataSource.apply(snapshot, animatingDifferences: true)
-                }
-            }
-            .store(in: &subscribers)
+        snapshotSubscription()
     }
     
     // MARK:- Helpers
@@ -66,7 +58,6 @@ class AddCityViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        
     }
     
     private func setupNavBar() {
@@ -89,6 +80,18 @@ class AddCityViewController: UIViewController {
             (cell as? TableViewCellProtocol)?.update(with: result)
             return cell
         })
+    }
+    
+    private func snapshotSubscription() {
+        
+        viewModel
+            .snapshotPublisher
+            .sink { [unowned self] (snapshot) in
+                DispatchQueue.main.async {
+                    self.dataSource.apply(snapshot, animatingDifferences: true)
+                }
+            }
+            .store(in: &subscribers)
     }
 }
 
