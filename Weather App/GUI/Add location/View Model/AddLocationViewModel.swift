@@ -24,7 +24,7 @@ class AddLocationViewModel: NSObject, ObservableObject {
         case geolocationFailed
     }
     
-    // Map
+    // Map Kit
     private var searchCompleter = MKLocalSearchCompleter()
     private var geocoder = CLGeocoder()
     
@@ -33,12 +33,12 @@ class AddLocationViewModel: NSObject, ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     @Published
-    var results = [AddCityViewController.Result]()
+    var results = [LocationCellViewModel]()
     
-    var snapshotPublisher: AnyPublisher<NSDiffableDataSourceSnapshot<AddCityViewController.Section, AddCityViewController.Result>, Never> {
+    var snapshotPublisher: AnyPublisher<NSDiffableDataSourceSnapshot<AddCityViewController.Section, LocationCellViewModel>, Never> {
         $results
             .map { results in
-                var snapshot = NSDiffableDataSourceSnapshot<AddCityViewController.Section, AddCityViewController.Result>()
+                var snapshot = NSDiffableDataSourceSnapshot<AddCityViewController.Section, LocationCellViewModel>()
                 snapshot.appendSections([.results])
                 snapshot.appendItems(results)
                 return snapshot
@@ -46,6 +46,7 @@ class AddLocationViewModel: NSObject, ObservableObject {
             .eraseToAnyPublisher()
     }
     
+    // MARK:- init
     override init() {
         guard let infoPlistAPIKey = Bundle.main.infoDictionary?["OpenWeatherMapApiKey"] as? String else {
             fatalError("You must supply API key either in the initializer or in the Info.plist under `OpenWeatherMapApiKey`")
@@ -61,7 +62,7 @@ class AddLocationViewModel: NSObject, ObservableObject {
             .map { completions in
                 completions
                     .filter { $0.title.contains(",") }
-                    .map { AddCityViewController.Result(title: $0.title, subtitle: $0.subtitle) }
+                    .map { LocationCellViewModel(title: $0.title, subtitle: $0.subtitle) }
             }
             .assign(to: &$results)
     }

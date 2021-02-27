@@ -12,7 +12,7 @@ struct OneCallDecodable: Decodable {
     let lon: Double
 }
 
-public struct City: Codable {
+struct City: Codable {
     public let name: String
     public let locality: String
     public let latitude: Double

@@ -29,6 +29,15 @@
 		BDCA8CAF25E31AC40081B18B /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CAE25E31AC40081B18B /* RequestManager.swift */; };
 		BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */; };
 		BDE2FFB525E351DF00B4F6F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */; };
+		BDF682E325E9D35B00F61D09 /* TableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF682E225E9D35B00F61D09 /* TableViewCellProtocol.swift */; };
+		BDF682E925E9D45900F61D09 /* SelectLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF682E825E9D45900F61D09 /* SelectLocationTableViewCell.swift */; };
+		BDF682F225E9D4CA00F61D09 /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF682F125E9D4CA00F61D09 /* BaseLabel.swift */; };
+		BDF682FB25E9D50E00F61D09 /* UIEdgeInset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF682FA25E9D50E00F61D09 /* UIEdgeInset+Extension.swift */; };
+		BDF6830725E9D54F00F61D09 /* FontUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6830625E9D54F00F61D09 /* FontUpdatable.swift */; };
+		BDF6830F25E9D58000F61D09 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6830E25E9D58000F61D09 /* UIFont+Extension.swift */; };
+		BDF6831A25E9D6C700F61D09 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDF6831925E9D6C700F61D09 /* Colors.xcassets */; };
+		BDF6831F25E9D70000F61D09 /* UIColor.Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6831E25E9D70000F61D09 /* UIColor.Extension.swift */; };
+		BDF6832425E9DAA400F61D09 /* LocationCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF6832325E9DAA400F61D09 /* LocationCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +108,15 @@
 		BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 		BDCA8CD225E323940081B18B /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BDF682E225E9D35B00F61D09 /* TableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocol.swift; sourceTree = "<group>"; };
+		BDF682E825E9D45900F61D09 /* SelectLocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationTableViewCell.swift; sourceTree = "<group>"; };
+		BDF682F125E9D4CA00F61D09 /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
+		BDF682FA25E9D50E00F61D09 /* UIEdgeInset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInset+Extension.swift"; sourceTree = "<group>"; };
+		BDF6830625E9D54F00F61D09 /* FontUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontUpdatable.swift; sourceTree = "<group>"; };
+		BDF6830E25E9D58000F61D09 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		BDF6831925E9D6C700F61D09 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BDF6831E25E9D70000F61D09 /* UIColor.Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.Extension.swift; sourceTree = "<group>"; };
+		BDF6832325E9DAA400F61D09 /* LocationCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,10 +234,12 @@
 		BDCA8C4C25E314430081B18B /* Weather App */ = {
 			isa = PBXGroup;
 			children = (
+				BDF6830525E9D53F00F61D09 /* Protocols */,
 				BD93379125E329F600E72DC6 /* Repository */,
 				BDCA8CB425E31FD70081B18B /* Main */,
 				BDCA8CB325E31FC90081B18B /* GUI */,
-				BDCA8C5125E314460081B18B /* Assets.xcassets */,
+				BDF682F925E9D4F600F61D09 /* Extensions */,
+				BDF6831325E9D67300F61D09 /* Resources */,
 				BDCA8C5625E314460081B18B /* Info.plist */,
 				BDCA8C5325E314460081B18B /* Preview Content */,
 			);
@@ -294,6 +314,8 @@
 		BDCA8CB325E31FC90081B18B /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				BDF682F025E9D4BF00F61D09 /* UIView */,
+				BDF682E125E9D34E00F61D09 /* Common */,
 				BDE2FFB225E351C000B4F6F6 /* Home */,
 				BDCA8CB825E31FE90081B18B /* Add location */,
 			);
@@ -314,6 +336,7 @@
 				BD0881CD25E3370900C8DE77 /* Model */,
 				BD9337A025E32C6600E72DC6 /* OW Manager */,
 				BDCA8CBA25E3200A0081B18B /* View Model */,
+				BDF682E725E9D44000F61D09 /* Cells */,
 				BDCA8CB925E320010081B18B /* View */,
 			);
 			path = "Add location";
@@ -332,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				BDCA8CBB25E3201A0081B18B /* AddLocationViewModel.swift */,
+				BDF6832325E9DAA400F61D09 /* LocationCellViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -359,6 +383,57 @@
 				BDE2FFB425E351DF00B4F6F6 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BDF682E125E9D34E00F61D09 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BDF682E225E9D35B00F61D09 /* TableViewCellProtocol.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BDF682E725E9D44000F61D09 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BDF682E825E9D45900F61D09 /* SelectLocationTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BDF682F025E9D4BF00F61D09 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				BDF682F125E9D4CA00F61D09 /* BaseLabel.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		BDF682F925E9D4F600F61D09 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BDF682FA25E9D50E00F61D09 /* UIEdgeInset+Extension.swift */,
+				BDF6830E25E9D58000F61D09 /* UIFont+Extension.swift */,
+				BDF6831E25E9D70000F61D09 /* UIColor.Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BDF6830525E9D53F00F61D09 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BDF6830625E9D54F00F61D09 /* FontUpdatable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BDF6831325E9D67300F61D09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDCA8C5125E314460081B18B /* Assets.xcassets */,
+				BDF6831925E9D6C700F61D09 /* Colors.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +575,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDF6831A25E9D6C700F61D09 /* Colors.xcassets in Resources */,
 				BDCA8C5525E314460081B18B /* Preview Assets.xcassets in Resources */,
 				BDCA8C5225E314460081B18B /* Assets.xcassets in Resources */,
 			);
@@ -534,12 +610,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDCA8CBC25E3201A0081B18B /* AddLocationViewModel.swift in Sources */,
+				BDF682F225E9D4CA00F61D09 /* BaseLabel.swift in Sources */,
 				BD02A4EC25E354D000CD6532 /* AddCityView.swift in Sources */,
+				BDF6830F25E9D58000F61D09 /* UIFont+Extension.swift in Sources */,
+				BDF6830725E9D54F00F61D09 /* FontUpdatable.swift in Sources */,
 				BDE2FFB525E351DF00B4F6F6 /* HomeView.swift in Sources */,
 				BD02A4D425E353FB00CD6532 /* HomeViewModel.swift in Sources */,
 				BD0881CF25E3372200C8DE77 /* OneCallDecodable.swift in Sources */,
+				BDF682E325E9D35B00F61D09 /* TableViewCellProtocol.swift in Sources */,
 				BD93379C25E32C6200E72DC6 /* OpenWeatherApiManager.swift in Sources */,
+				BDF6831F25E9D70000F61D09 /* UIColor.Extension.swift in Sources */,
+				BDF682FB25E9D50E00F61D09 /* UIEdgeInset+Extension.swift in Sources */,
 				BDCA8C4E25E314430081B18B /* Weather_AppApp.swift in Sources */,
+				BDF682E925E9D45900F61D09 /* SelectLocationTableViewCell.swift in Sources */,
+				BDF6832425E9DAA400F61D09 /* LocationCellViewModel.swift in Sources */,
 				BD02A4F125E35C9600CD6532 /* AddCityViewController.swift in Sources */,
 				BD93379425E32A1900E72DC6 /* OneCallApi.swift in Sources */,
 			);

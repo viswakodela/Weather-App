@@ -24,7 +24,7 @@ class AddCityViewController: UIViewController {
         target: nil,
         action: nil
     )
-    private var cancellables = Set<AnyCancellable>()
+    private var subscribers = Set<AnyCancellable>()
     
     @Published
     private var selectedCity: City?
@@ -35,13 +35,7 @@ class AddCityViewController: UIViewController {
         case results
     }
     
-    struct Result: Identifiable, Equatable, Hashable {
-        let id = UUID()
-        let title: String
-        let subtitle: String
-    }
-    
-    private var dataSource: UITableViewDiffableDataSource<Section, Result>!
+    private var dataSource: UITableViewDiffableDataSource<Section, LocationCellViewModel>!
     
     // MARK:- Life cycle
     override func viewDidLoad() {
@@ -55,11 +49,13 @@ class AddCityViewController: UIViewController {
             .sink { [unowned self] (snapshot) in
                 self.dataSource.apply(snapshot, animatingDifferences: true)
             }
-            .store(in: &cancellables)
+            .store(in: &subscribers)
     }
     
     // MARK:- Helpers
     private func setupTableView() {
+        tableView.rowHeight = 44
+        tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -68,6 +64,7 @@ class AddCityViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+        
     }
     
     private func setupNavBar() {
@@ -75,16 +72,19 @@ class AddCityViewController: UIViewController {
         navigationItem.title = "Add City"
         navigationItem.leftBarButtonItem = leftBarButtonItem
         
-        searchController.searchBar.placeholder = " Search..."
+        searchController.searchBar.placeholder = "Search..."
         searchController.searchResultsUpdater = self
+        searchController.automaticallyShowsCancelButton = true
+        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     private func configureTableView() {
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(SelectLocationTableviewCell.self,
+                           forCellReuseIdentifier: String(describing: LocationCellViewModel.self))
+        
         dataSource = UITableViewDiffableDataSource.init(tableView: tableView, cellProvider: { (tv, indexPath, result) -> UITableViewCell? in
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "Cell")
-            cell?.textLabel?.text = result.title
-            cell?.detailTextLabel?.text = result.subtitle
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: result.identifier)
+            (cell as? TableViewCellProtocol)?.update(with: result)
             return cell
         })
     }
@@ -103,6 +103,7 @@ extension AddCityViewController: UITableViewDelegate {
             .compactMap{ $0 }
             .assign(to: &$selectedCity)
     }
+    
 }
 
 extension AddCityViewController: UISearchResultsUpdating {
