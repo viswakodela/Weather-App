@@ -27,7 +27,7 @@ class AddCityViewController: UIViewController {
     private var subscribers = Set<AnyCancellable>()
     
     @Published
-    private var selectedCity: City?
+    var selectedCity: City?
     
     // MARK:- properties
     private let viewModel = AddLocationViewModel()
@@ -102,8 +102,9 @@ extension AddCityViewController: UITableViewDelegate {
             }
             .compactMap{ $0 }
             .assign(to: &$selectedCity)
+        
+        dismiss(animated: true)
     }
-    
 }
 
 extension AddCityViewController: UISearchResultsUpdating {

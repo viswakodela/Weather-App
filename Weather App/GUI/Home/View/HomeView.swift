@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
     
@@ -25,8 +26,10 @@ struct HomeView: View {
                 }
             }
         }
-        .sheet(isPresented: $viewModel.isPresented, content: {
-            AddCityView()
+        .sheet(isPresented: $viewModel.isPresented, content: { () -> AddCityView in
+            let cityView = AddCityView()
+            viewModel.chosenCity(from: cityView)
+            return cityView
         })
     }
 }

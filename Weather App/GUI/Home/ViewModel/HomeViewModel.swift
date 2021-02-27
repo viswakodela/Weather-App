@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published
     var isPresented: Bool = false
     
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
     var addButtonSubject = CurrentValueSubject<Bool, Never>(false)
     
@@ -22,6 +22,8 @@ class HomeViewModel: ObservableObject {
         addButtonSubject
             .eraseToAnyPublisher()
     }
+    
+    var chosenCity: City?
     
     // MARK:- init
     init() {
@@ -33,5 +35,14 @@ class HomeViewModel: ObservableObject {
     // MARK:- Helper Methods
     func addButtonAction() {
         addButtonSubject.send(true)
+    }
+    
+    func chosenCity(from cityView: AddCityView) {
+        cityView
+            .cityViewController
+            .$selectedCity
+            .dropFirst()
+            .assign(to: \.chosenCity, on: self)
+            .store(in: &cancellables)
     }
 }

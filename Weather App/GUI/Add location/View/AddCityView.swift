@@ -7,11 +7,14 @@
 
 import SwiftUI
 import UIKit
+import Combine
 
 struct AddCityView: UIViewControllerRepresentable {
     
+    let cityViewController = AddCityViewController()
+    
     func makeUIViewController(context: Context) -> UINavigationController {
-        let navController = UINavigationController(rootViewController: AddCityViewController())
+        let navController = UINavigationController(rootViewController: cityViewController)
         return navController
     }
     
