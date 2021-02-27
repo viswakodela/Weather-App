@@ -47,7 +47,9 @@ class AddCityViewController: UIViewController {
         viewModel
             .snapshotPublisher
             .sink { [unowned self] (snapshot) in
-                self.dataSource.apply(snapshot, animatingDifferences: true)
+                DispatchQueue.main.async {
+                    self.dataSource.apply(snapshot, animatingDifferences: true)
+                }
             }
             .store(in: &subscribers)
     }
